@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<title>Test Results</title>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            color: #007bff;
+        }
+        .content {
+            margin-bottom: 20px;
+        }
+        .content p {
+            margin: 0 0 10px;
+        }
+        .summary {
+            border-top: 2px solid #007bff;
+            padding-top: 10px;
+        }
+        .summary table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        .summary table, .summary th, .summary td {
+            border: 1px solid #ddd;
+        }
+        .summary th, .summary td {
+            padding: 10px;
+            text-align: left;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Test Results</h1>
+        </div>
+        <div class="content">
+            <p>Dear {{userName}},</p>
+            <p>Congratulations on completing the "<strong>{{testTitle}}</strong>" assessment. We appreciate your effort and dedication.</p>
+            <p>Here is a summary of your results:</p>
+            <div class="summary">
+                <table>
+                    <tr>
+                        <th>Test Title</th>
+                        <td>{{testTitle}}</td>
+                    </tr>
+                    <tr>
+                        <th>Date Completed</th>
+                        <td>{{dateCompleted}}</td>
+                    </tr>
+                    <tr>
+                        <th>Score</th>
+                        <td>{{score}} out of {{totalMarks}}</td>
+                    </tr>
+                </table>
+                <p>{{personalizedMessage}}</p>
+            </div>
+        </div>
+        <div class="footer">
+            <p>If you have any questions or need further clarification, please feel free to reach out.</p>
+            <p>Once again, well done on your performance, and we look forward to seeing you excel in future assessments.</p>
+            <p>Best regards, <br>The Test Platform Team</p>
+        </div>
+    </div>
+</body>
+</html>
