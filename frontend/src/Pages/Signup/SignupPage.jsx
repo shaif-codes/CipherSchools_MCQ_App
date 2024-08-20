@@ -11,10 +11,7 @@ const SignupPage = () => {
 
   return (
     <div className="signup-page">
-      <div className="signup-container">
-        <h2>Create Your Account</h2>
         <SignupForm onSubmit={handleSignupSubmit}/>
-      </div>
     </div>
   );
 };

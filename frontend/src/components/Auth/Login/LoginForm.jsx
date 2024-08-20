@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';  // Import useNavigate
 import axios from 'axios';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './LoginForm.css';
 const API_URL = import.meta.env.VITE_API_URL;
 
@@ -8,6 +10,8 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
+
+  const navigate = useNavigate();  // Initialize useNavigate
 
   const validateForm = () => {
     if (!email || !password) {
@@ -25,13 +29,15 @@ const LoginForm = () => {
     }
 
     try {
-      const response = await axios.post(`${API_URL}/api/auth/login`, { email, password });
+      const response = await axios.post(`${API_URL}/api/auth/login`, { email, password }, {withCredentials: true});
       if (response.status !== 200) {
         throw new Error('Login failed');
-        }
+      }
       // Assuming the response contains the user data and token
       console.log('Login successful:', response.data);
-      // Redirect user to the dashboard or save the token, etc.
+
+      // Redirect user to the dashboard page after successful login
+      navigate('/dashboard');  // Replace '/dashboard' with your actual dashboard route
     } catch (error) {
       console.error('Login error:', error);
       setError('Invalid email or password.');
@@ -54,7 +60,7 @@ const LoginForm = () => {
 
       <div className="form-group">
         <label htmlFor="password">Password</label>
-        <div className="password-input">
+        <div className="password-input-container">
           <input
             type={showPassword ? 'text' : 'password'}
             id="password"
@@ -67,7 +73,7 @@ const LoginForm = () => {
             className="show-password"
             onClick={() => setShowPassword(!showPassword)}
           >
-            {showPassword ? 'Hide' : 'Show'}
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
           </button>
         </div>
       </div>
