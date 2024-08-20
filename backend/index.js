@@ -7,12 +7,18 @@ const authRoutes = require('./routes/auth');
 const {authenticate} = require('./middleware/authMiddleware');
 const userRoutes = require('./routes/user');
 const testRoutes = require('./routes/test');
+const cors = require('cors');
+
 require('./cron/evaluateTests'); // Import cron jobs
 
 
 const port = process.env.PORT || 5000;
 app.use(express.json());
 app.use(cookieParser());  // Add this line
+app.use(cors({
+    origin: process.env.CLIENT_URL,
+    credentials: true
+}));
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI).then(() => {
