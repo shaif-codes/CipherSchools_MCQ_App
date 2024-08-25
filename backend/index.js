@@ -7,6 +7,7 @@ const authRoutes = require('./routes/auth');
 const {authenticate} = require('./middleware/authMiddleware');
 const userRoutes = require('./routes/user');
 const testRoutes = require('./routes/test');
+const systemCheckRoutes = require('./routes/systemCheck');
 const cors = require('cors');
 
 require('./cron/evaluateTests'); // Import cron jobs
@@ -34,6 +35,7 @@ app.get('/', authenticate, (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/tests', testRoutes);
+app.use('/api/system-check', systemCheckRoutes);
 app.use("*", (req, res) => res.status(404).json({ error: "Page Not found" }));
 
 app.listen(port, () => {

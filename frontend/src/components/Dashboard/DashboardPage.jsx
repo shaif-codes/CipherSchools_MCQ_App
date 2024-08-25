@@ -3,7 +3,9 @@ import './DashboardPage.css'; // CSS for styling
 import axios from 'axios';
 import { FaUser, FaSignOutAlt, FaClipboardList } from 'react-icons/fa'; // Icons for navigation
 
+
 const API_URL = import.meta.env.VITE_API_URL;
+
 
 const DashboardPage = () => {
   const [tests, setTests] = useState([]);
@@ -21,7 +23,7 @@ const DashboardPage = () => {
         console.error("Error fetching tests", error);
         // if error is unauthorized, redirect to login page
         if (error.response && error.response.status === 401) {
-        //   window.location.href = '/';
+          window.location.href = '/';
         }
       }
     };
@@ -44,6 +46,10 @@ const DashboardPage = () => {
     }
     };
 
+    const handleStartTest = (testId) => {
+        console.log("Starting test", testId);
+        window.location.href = `/system-check/${testId}`;
+    };
 
   return (
     <div className="dashboard-container">
@@ -79,10 +85,10 @@ const DashboardPage = () => {
         </div>
         <div className="test-list">
           {filteredTests.map(test => (
-            <div key={test.id} className="test-item">
+            <div key={test._id} className="test-item">
               <h3 align="center">{test.title}</h3>
               <p>{test.description}</p>
-              <button className="enter-test-btn">
+              <button onClick={() => handleStartTest(test._id)} className="enter-test-btn">
                 Enter Test
               </button>
             </div>

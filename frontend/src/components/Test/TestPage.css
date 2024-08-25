@@ -1,0 +1,132 @@
+/* TestPage.css */
+.test-page{
+    height: 100vh;
+    width : 100vw;
+    display: flex;
+}
+
+/* Header styling*/
+.test-header {
+    background-color: #007bff; /* Primary blue color */
+    color: white; /* White text color */
+    padding: 20px; /* Padding for spacing */
+    text-align: center; /* Center-align the content */
+    border-bottom: 2px solid #0056b3; /* Add a bottom border for separation */
+  }
+  
+  .test-title {
+    font-size: 28px; /* Set a large font size for the test title */
+    font-weight: bold; /* Make the test title bold */
+    margin: 0; /* Remove default margin from heading */
+  }
+  
+  @media (max-width: 768px) {
+    .test-title {
+      font-size: 22px; /* Adjust font size for smaller screens */
+    }
+  }
+
+
+.main-content {
+    width: 70%;
+  }
+  
+  .question-section {
+    border-bottom: 2px solid #ccc;
+    padding: 30px;
+    margin-bottom: 20px;
+    height: 70vh;
+  }
+  
+  .question-statement {
+    font-size: 18px;
+  }
+  
+  .options {
+    margin-top: 10px;
+  }
+  
+  .option {
+    margin-bottom: 10px;
+  }
+  
+  .navigation-controls {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .mark-for-review {
+    background-color: orange;
+    color: white;
+  }
+  
+  .previous, .next {
+    background-color: #007bff;
+    color: white;
+  }
+
+
+
+.sidebar {
+    width: 30%;
+    background-color: #f4f4f4;
+    padding: 20px;
+  }
+  
+  .timer {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .timer-display {
+    font-size: 24px;
+  }
+  
+  .question-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .question-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+  }
+  
+  .question-button {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+  
+  /* Default color for not answered (red) */
+  .not-answered {
+    background-color: red;
+    color: white;
+  }
+  
+  /* Color for answered questions (green) */
+  .answered {
+    background-color: green;
+    color: white;
+  }
+  
+  /* Color for questions marked for review (orange) */
+  .review {
+    background-color: orange;
+    color: white;
+  }
+  
+  /* Optional: Active state when clicking on a button */
+  .question-button.active {
+    border: 2px solid blue;
+  }
